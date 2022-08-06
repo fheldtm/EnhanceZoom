@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhance Zoom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+</head>
+<body>
+  <section class="start-zoom">
+    <h1 class="start-zoom__title">Enhance ZOOM</h1>
+    <div class="start-zoom__login">
+      <a href="https://zoom.us/signin" target="_blank" class="start-zoom__login--link">
+        줌 로그인하기
+      </a>
+    </div>
+    <div class="start-zoom__link">
+      <input class="start-zoom__link--input" type="text" />
+      <p class="start-zoom__link--desc">줌 링크를 입력해주세요.</p>
+    </div>
+    <div class="start-zoom__btn">
+      <button type="button">입장</button>
+    </div>
+  </section>
+
+  <section id="root">
+    <!-- <iframe id="zoom" class="zoom" src="" frameborder="0"></iframe> -->
+    <object id="zoom" class="zoom" data="" type="text/html"></object>
+    <div class="enhance"></div>
+  </section>
+
+  <!-- https://us04web.zoom.us/j/78585600920?pwd=raY-HUc-4hIuIpKYfPM0rBkTPSSV9Q.1 -->
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

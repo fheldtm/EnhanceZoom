@@ -1,0 +1,133 @@
+html, body {
+  height: 100%;
+}
+
+.start-zoom {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .3s, visibility .3s;
+}
+
+.start-zoom.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.start-zoom__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 200px));
+  font-size: 40px;
+  font-weight: 700;
+  color: #2d8cff;
+  letter-spacing: -1px;
+  font-family: 'Kufam', sans-serif;
+}
+
+.start-zoom__login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 150px));
+}
+
+.start-zoom__login--link {
+  font-size: 14px;
+  color: #999;
+  font-weight: 300;
+  padding: 5px 10px 8px;
+  border-radius: 5px;
+  transition: background .3s;
+  position: relative;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.start-zoom__login--link:hover {
+  background: #f2f2f2;
+  text-decoration: underline;
+}
+
+.start-zoom__link {
+  width: 500px;
+  position: relative;
+}
+
+.start-zoom__link--input {
+  width: 100%;
+  height: 60px;
+  border-radius: 6px;
+  border: 2px solid #555;
+  font-size: 16px;
+  color: #000;
+  padding: 20px 20px 0;
+  background: #fff;
+}
+
+.start-zoom__link--input.content + .start-zoom__link--desc {
+  transform: translateY(calc(-50% - 13px));
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.start-zoom__link--desc {
+  position: absolute;
+  top: 50%;
+  left: 22px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: transform .3s, font-size .3s;
+  color: #666;
+  font-weight: 400;
+  z-index: 0;
+}
+
+.start-zoom__btn {
+  width: 500px;
+}
+
+.start-zoom__btn button {
+  margin-top: 10px;
+  width: 100%;
+  height: 58px;
+  border-radius: 6px;
+  display: flex;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  background: #0e72ed;
+}
+
+.start-zoom__btn button:hover {
+  background: #2681f2;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  align-items: center;
+  display: none;
+}
+#root.on {
+  display: flex;
+}
+
+.zoom {
+  width: calc(100% - 200px);
+  height: 100%;
+}
+
+.enhance {
+  width: 200px;
+  height: 100%;
+}
