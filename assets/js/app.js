@@ -5,7 +5,7 @@ const startZoomSetting = () => {
   const zoomStart = () => {
     const { value } = zoomLinkInput;
     const url = value.trim();
-    const defaultZoomLink = 'https://us04web.zoom.us/j/';
+    const defaultZoomLink = 'web.zoom.us/j/';
 
     
     // https://us04web.zoom.us/j/78585600920?pwd=raY-HUc-4hIuIpKYfPM0rBkTPSSV9Q.1
@@ -19,6 +19,7 @@ const startZoomSetting = () => {
       // zoom.data = `https://zoom.us/wc/${id}/join?pwd=${pwd}`;
       // zoom.src = `https://zoom.us/wc/${id}/start`;
 
+      console.log(`https://zoom.us/wc/${id}/join?pwd=${pwd}`)
       window.location.href = `https://zoom.us/wc/${id}/join?pwd=${pwd}`
 
       // const startZoom = document.querySelector('.start-zoom');
