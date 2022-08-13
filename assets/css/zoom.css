@@ -79,7 +79,7 @@
 
 .dashboard-participants-list__wrapper {
   width: 100%;
-  flex: 1;
+  height: calc(100% - 226px);
   background: #fff;
   position: relative;
 }

@@ -188,63 +188,75 @@
   }
   
   function filterParticipants() {
+    for (let i = participantsList.children; i > 1; i--) {
+      const element = participantsList.children[i - 1];
+      participantsList.removeChild(element);
+    }
+
     participants = participants
       .filter(participant => { // host filter
         if (participantCondition.host === 'all') {
           return true;
         } else if (participantCondition.host === true) {
-          return participant.host === true
+          return participant.isHost === true
         } else if (participantCondition.host === false) {
-          return participant.host === false
+          return participant.isHost === false
         }
       })
       .filter(participant => { // video filter
         if (participantCondition.video === 'all') {
           return true;
         } else if (participantCondition.video === true) {
-          return participant.video === true;
+          return participant.bVideoOn === true;
         } else if (participantCondition.video === false) {
-          return participant.video === false;
+          return participant.bVideoOn === false;
         }
       })
       .filter(participant => { // audio filter
         if (participantCondition.audio === 'all') {
           return true;
-        } else if (participantCondition.audio === 'audioOn') {
-          return participant.audio === 'audioOn';
-        } else if (participantCondition.audio === 'audioOff') {
-          return participant.audio === 'audioOff';
         } else if (participantCondition.audio === 'noConnect') {
-          return participant.audio === 'noConnect';
+          return participant.audioConnectionStatus === 1;
+        } else if (participantCondition.audio === 'audioOn') {
+          return participant.muted === false && participant.audioConnectionStatus !== 1;
+        } else if (participantCondition.audio === 'audioOff') {
+          return participant.muted === true;
         }
       })
-    console.log(participants)
+      .forEach(participant => {
+        console.log(participant)
+      })
   }
 
   function getParticipants() {
     participants = [];
-    const participantItems = document.querySelectorAll('.participants-item-position');
-    participantItems.forEach(participant => {
-      const nameElement = participant.querySelector('.participants-item__display-name');
-      const name = nameElement.textContent;
+    // const participantItems = document.querySelectorAll('.participants-item-position');
+    // participantItems.forEach(participant => {
+    //   const nameElement = participant.querySelector('.participants-item__display-name');
+    //   const name = nameElement.textContent;
 
-      const labelElement = participant.querySelector('.participants-item__name-label');
-      const label = labelElement.textContent;
+    //   const labelElement = participant.querySelector('.participants-item__name-label');
+    //   const label = labelElement.textContent;
 
-      // mouse leave
-      mouseleaveRightSection(participant);
+    //   // mouse leave
+    //   mouseleaveRightSection(participant);
 
-      const ishost = hostReg.test(label);
-      const audiostatus = isAudio(participant);
-      const videostatus = isVideo(participant);
+    //   const ishost = hostReg.test(label);
+    //   const audiostatus = isAudio(participant);
+    //   const videostatus = isVideo(participant);
 
-      participants.push({
-        name: name,
-        host: ishost,
-        audio: audiostatus,
-        video: videostatus
-      })
-    })
+    //   participants.push({
+    //     name: name,
+    //     host: ishost,
+    //     audio: audiostatus,
+    //     video: videostatus,
+    //     element: participant
+    //   })
+    // })
+
+    const listbox = document.querySelector('[role="listbox"]');
+    const key = Object.keys(listbox)[0];
+    participants = listbox[key].return.memoizedProps.renderList
 
     // filtering
     filterParticipants();
